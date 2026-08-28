@@ -90,7 +90,7 @@ nav a {
 
 nav a:hover,
 nav a:focus-visible {
-    color: #B47F70;
+    color: #C9826B;
     text-decoration: underline;
     text-underline-offset: 4px;
 }
@@ -122,11 +122,41 @@ h3 {
     line-height: 1.2;
 }
 
-.introduction {
-    padding-top: 96px;
-    padding-bottom: 96px;
+#a-propos h2,
+#contact h2 {
+    text-align: left;
 }
 
+#a-propos .texte-limite,
+#contact .texte-limite {
+    max-width: 900px;
+    margin: 0;
+}
+
+#a-propos .texte-limite {
+    text-align: justify;
+    hyphens: auto;
+}
+
+#contact {
+    text-align: left;
+}
+
+#contact .texte-limite {
+    text-align: left;
+}
+
+.liens-contact {
+    justify-content: flex-start;
+}
+
+.introduction {
+    padding-top: 72px;
+    padding-bottom: 48px;
+}
+#projets {
+    padding-top: 48px;
+}
 .sur-titre {
     margin-top: 0;
     margin-bottom: 16px;
@@ -144,43 +174,64 @@ h3 {
     font-size: 18px;
 }
 
-.actions-introduction {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.bouton {
-    display: inline-flex;
+.contenu-introduction {
+    display: grid;
     align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid #B47F70;
-    border-radius: 4px;
-    font-weight: 500;
-    text-decoration: none;
+    gap: 32px;
 }
 
-.bouton-principal {
-    background-color: #B47F70;
-    color: #0F1419;
+.photo-introduction {
+    width: clamp(160px, 18vw, 220px);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 2px solid #c9826b;
+    border-radius: 12px;
 }
 
-.bouton-secondaire {
-    background-color: transparent;
-    color: #B47F70;
+.citation-introduction {
+    max-width: 600px;
+    margin: 24px 0 0;
+    padding-left: 16px;
+    border-left: 3px solid #C9826B;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 20px;
 }
 
-.bouton:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.citation-introduction p {
+    margin: 0;
+    color: #F2F0E9;
 }
 
-.bouton:focus-visible {
-    outline: 2px solid #F2F0E9;
-    outline-offset: 4px;
+.citation-introduction blockquote {
+    margin: 0;
+}
+
+
+.citation-introduction figcaption {
+    margin-top: 12px;
+    color: #b6bdc5;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+}
+
+.citation-introduction cite {
+    display: block;
+    margin-top: 8px;
+    color: #B6BDC5;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.texte-introduction,
+.details-projet p,
+#a-propos .texte-limite,
+#contact .texte-limite {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
 }
 
 .presentation-projet {
@@ -228,20 +279,20 @@ main p {
     font-size: 14px;
     font-weight: 500;
      padding: 6px 12px;
-    border: 1px solid rgba(180, 127, 112, 0.45);
+    border: 1px solid rgba(201, 130, 107, 0.45);
     border-radius: 999px;
-    background-color: rgba(180, 127, 112, 0.08);
+    background-color: rgba(201, 130, 107, 0.08);
 }
 
 .details-projet a {
-    color: #B47F70;
+    color: #C9826B;
     font-weight: 500;
     text-underline-offset: 4px;
     display: inline-block;
     padding-bottom: 4px;
     color: #F2F0E9;
     text-decoration: none;
-    border-bottom: 2px solid #B47F70;
+    border-bottom: 2px solid #C9826B;
 }
 
 .details-projet a:focus-visible {
@@ -250,7 +301,7 @@ main p {
 }
 
 .details-projet a:hover {
-    color: #B47F70;
+    color: #C9826B;
 }
 
 .texte-limite {
@@ -267,7 +318,7 @@ main p {
 }
 
 .liens-contact a {
-    color: #B47F70;
+    color: #C9826B;
     font-weight: 500;
     text-underline-offset: 4px;
 }
@@ -302,10 +353,129 @@ footer p {
     font-size: 14px;
 }
 
+#projets > h2,
+#a-propos > h2,
+#contact > h2 {
+    padding-bottom: 14px;
+}
+
+#projets > h2::after,
+#a-propos > h2::after,
+#contact > h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin-top: 12px;
+    background-color: #C9826B;
+}
+
 @media (min-width: 800px) {
-    .presentation-projet {
-        grid-template-columns: 380px 1fr;
-        align-items: start;
-        gap: 32px;
+    .contenu-introduction {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 64px;
     }
+
+    .photo-introduction {
+        width: 220px;
+    }
+
+    #projets,
+    #a-propos,
+    #contact {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        column-gap: 32px;
+        align-items: start;
+    }
+
+    #projets > h2,
+    #a-propos > h2 {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 0;
+    }
+
+    #projets > .projet,
+    #a-propos > .texte-limite {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: none;
+    }
+
+    .presentation-projet {
+        grid-template-columns: clamp(160px, 18vw, 220px) minmax(0, 1fr);
+        align-items: start;
+        gap: 24px;
+    }
+
+    .image-projet {
+        width: 100%;
+        max-width: none;
+    }
+
+    #contact h2 {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-bottom: 0;
+    }
+
+    #contact .texte-limite {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: none;
+    }
+
+    #contact .liens-contact {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 24px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .contenu-introduction {
+        grid-template-columns: minmax(0, 700px) 220px;
+        justify-content: start;
+        column-gap: 56px;
+    }
+}
+
+.page-legale {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-legale h2 {
+    margin-top: 48px;
+    margin-bottom: 16px;
+    font-size: 28px;
+}
+
+.page-legale address {
+    color: #B6BDC5;
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.page-legale a,
+footer a {
+    color: #C9826B;
+    text-underline-offset: 4px;
+}
+
+.page-legale a:hover,
+.page-legale a:focus-visible,
+footer a:hover,
+footer a:focus-visible {
+    color: #F2F0E9;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
